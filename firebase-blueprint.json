@@ -1,0 +1,212 @@
+{
+  "entities": {
+    "TeacherProfile": {
+      "title": "Teacher Profile",
+      "description": "Thông tin tài khoản Giáo viên Chủ nhiệm THPT",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "schoolName": { "type": "string" },
+        "phoneNumber": { "type": "string" },
+        "role": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["uid", "email"]
+    },
+    "Classroom": {
+      "title": "Classroom",
+      "description": "Lớp học THPT do GVCN quản trị",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "teacherId": { "type": "string" },
+        "schoolName": { "type": "string" },
+        "academicYear": { "type": "string" },
+        "className": { "type": "string" },
+        "grade": { "type": "number" },
+        "teacherName": { "type": "string" },
+        "teacherPhone": { "type": "string" },
+        "officialSize": { "type": "number" },
+        "baseCompetitionPoints": { "type": "number" },
+        "isDataLocked": { "type": "boolean" },
+        "currentWeek": { "type": "number" },
+        "currentSemester": { "type": "string" }
+      },
+      "required": ["id", "teacherId", "className"]
+    },
+    "Student": {
+      "title": "Student",
+      "description": "Hồ sơ học sinh THPT",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "classId": { "type": "string" },
+        "stt": { "type": "number" },
+        "studentCode": { "type": "string" },
+        "fullName": { "type": "string" },
+        "dateOfBirth": { "type": "string" },
+        "gender": { "type": "string" },
+        "groupNumber": { "type": "number" },
+        "role": { "type": "string" },
+        "status": { "type": "string" }
+      },
+      "required": ["id", "classId", "studentCode", "fullName", "groupNumber"]
+    },
+    "WeeklyPointTransaction": {
+      "title": "Weekly Point Transaction",
+      "description": "Giao dịch cộng/trừ điểm thi đua hàng tuần của học sinh do GVCN nhập",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "transactionId": { "type": "string" },
+        "studentId": { "type": "string" },
+        "classId": { "type": "string" },
+        "weekId": { "type": "string" },
+        "weekNumber": { "type": "number" },
+        "date": { "type": "string" },
+        "category": { "type": "string" },
+        "categoryLabel": { "type": "string" },
+        "reason": { "type": "string" },
+        "score": { "type": "number" },
+        "type": { "type": "string" },
+        "note": { "type": "string" },
+        "createdBy": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" },
+        "studentNameSnapshot": { "type": "string" },
+        "studentCodeSnapshot": { "type": "string" },
+        "groupNumberSnapshot": { "type": "number" },
+        "status": { "type": "string" }
+      },
+      "required": [
+        "id",
+        "studentId",
+        "classId",
+        "weekNumber",
+        "date",
+        "reason",
+        "score",
+        "createdBy",
+        "createdAt",
+        "studentNameSnapshot",
+        "groupNumberSnapshot",
+        "status"
+      ]
+    },
+    "PointRule": {
+      "title": "Point Rule",
+      "description": "Quy tắc cộng/trừ điểm thi đua do GVCN thiết lập",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "classId": { "type": "string" },
+        "name": { "type": "string" },
+        "type": { "type": "string" },
+        "category": { "type": "string" },
+        "categoryLabel": { "type": "string" },
+        "score": { "type": "number" },
+        "description": { "type": "string" },
+        "isActive": { "type": "boolean" },
+        "order": { "type": "number" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "classId", "name", "type", "category", "score", "isActive"]
+    },
+    "LearningRecord": {
+      "title": "Learning Record",
+      "description": "Bản ghi theo dõi học tập, điểm kiểm tra, nhận xét và hỗ trợ của học sinh",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "classId": { "type": "string" },
+        "studentId": { "type": "string" },
+        "studentNameSnapshot": { "type": "string" },
+        "studentCodeSnapshot": { "type": "string" },
+        "groupNumberSnapshot": { "type": "number" },
+        "subjectCode": { "type": "string" },
+        "subjectName": { "type": "string" },
+        "assessmentType": { "type": "string" },
+        "assessmentName": { "type": "string" },
+        "date": { "type": "string" },
+        "weekNumber": { "type": "number" },
+        "month": { "type": "string" },
+        "semester": { "type": "string" },
+        "score": { "type": "number" },
+        "feedback": { "type": "string" },
+        "achievement": { "type": "string" },
+        "supportNeeded": { "type": "string" },
+        "hasConductBonus": { "type": "boolean" },
+        "conductTransactionId": { "type": "string" },
+        "originSource": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" },
+        "createdBy": { "type": "string" }
+      },
+      "required": ["id", "classId", "studentId", "subjectCode", "assessmentType", "score", "date", "semester"]
+    },
+    "TimetablePeriod": {
+      "title": "Timetable Period",
+      "description": "Tiết học trong thời khóa biểu tuần của lớp",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "classId": { "type": "string" },
+        "dayOfWeek": { "type": "number" },
+        "session": { "type": "string" },
+        "period": { "type": "number" },
+        "subject": { "type": "string" },
+        "teacherName": { "type": "string" },
+        "room": { "type": "string" },
+        "note": { "type": "string" },
+        "updatedAt": { "type": "string" },
+        "updatedBy": { "type": "string" }
+      },
+      "required": ["id", "classId", "dayOfWeek", "session", "period", "subject", "teacherName"]
+    }
+  },
+  "firestore": {
+    "/teachers/{teacherId}": {
+      "schema": "TeacherProfile",
+      "description": "Hồ sơ giáo viên chủ nhiệm"
+    },
+    "/classes/{classId}": {
+      "schema": "Classroom",
+      "description": "Thông tin lớp học THPT"
+    },
+    "/students/{studentId}": {
+      "schema": "Student",
+      "description": "Danh sách học sinh của lớp"
+    },
+    "/weekly_point_transactions/{transactionId}": {
+      "schema": "WeeklyPointTransaction",
+      "description": "Giao dịch điểm tuần từng học sinh"
+    },
+    "/point_rules/{ruleId}": {
+      "schema": "PointRule",
+      "description": "Quy tắc chấm điểm thi đua của lớp"
+    },
+    "/conduct_records/{recordId}": {
+      "schema": "WeeklyPointTransaction",
+      "description": "Lưu trữ sự kiện nề nếp thi đua"
+    },
+    "/learning_records/{recordId}": {
+      "schema": "LearningRecord",
+      "description": "Bản ghi theo dõi học tập và điểm kiểm tra"
+    },
+    "/classification_configs/{classId}": {
+      "schema": "ClassificationConfig",
+      "description": "Cấu hình thang điểm và điều kiện xếp loại của lớp"
+    },
+    "/official_classifications/{classificationId}": {
+      "schema": "OfficialClassification",
+      "description": "Bản xếp loại chính thức đã khóa có thể truy nguyên dữ liệu gốc"
+    },
+    "/timetable/{itemId}": {
+      "schema": "TimetablePeriod",
+      "description": "Thời khóa biểu các ngày trong tuần của lớp"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "QUẢN LÝ LỚP CHỦ NHIỆM",
+  "description": "Hệ thống web quản lý lớp chủ nhiệm THPT dành riêng cho giáo viên chủ nhiệm",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
